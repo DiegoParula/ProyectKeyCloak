@@ -1,0 +1,21 @@
+Roles de Reino:
+app_administrador
+app_repositor
+app_vendedor
+
+Roles cliente: 
+administrador
+repositor
+vendedor
+
+Los roles de reino y de cliente están relacionados entre si. 
+
+http://localhost:9090/api/productos/getall  
+Sólo pueden acceder los usuarios con roles de administrador o repositor
+
+http://localhost:9090/api/ventas/getall
+Sólo pueden acceder los usuarios con roles de administrador o vendedor
+
+http://localhost:9090/users/all
+http://localhost:9090/users/username/{nombreDelUsuario}
+Sólo pueden acceder los usuarios con roles de administrador

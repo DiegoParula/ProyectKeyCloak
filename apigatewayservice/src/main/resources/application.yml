@@ -1,0 +1,32 @@
+server:
+    port: 9090
+spring:
+    cloud:
+        gateway:
+            default-filters:
+            - TokenRelay
+            routes:
+            -   id: elaparato
+                predicates:
+                - Path=/api/**
+                uri: http://localhost:8086
+
+            -   id: keycloakadmin
+                predicates:
+                    - Path=/users/**
+                uri: http://localhost:8181
+    security:
+        oauth2:
+            client:
+                provider:
+                    keycloak-test:
+                        issuer-uri: http://localhost:8080/realms/el-aparato-parula
+                registration:
+                    keycloak-test:
+                        authorization-grant-type: authorization_code
+                        client-id: api-gateway-client
+                        client-secret: nsHoAUok4jC6kjuBH1iDBh1rGKMt6kbu
+#                        provider: api-gateway-service // es para decirle el alias del provider, como son iguales en este caso no lo necesito
+                        redirect-uri: http://localhost:9090/login/oauth2/code/keycloak
+                        scope:
+                            - openid

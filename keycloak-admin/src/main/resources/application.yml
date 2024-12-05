@@ -1,0 +1,22 @@
+server:
+  port: 8181
+
+spring:
+  application:
+    name: keycloakadmin
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/el-aparato-parula
+admin:
+  keycloak:
+    serverUrl: http://localhost:8080
+    realm: el-aparato-parula
+    clientId: api-internal-users-client
+    clientSecret: aZC89N6Qtku2Z9CB1b40Rjwjcl102Yj1
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.springframework.web: DEBUG

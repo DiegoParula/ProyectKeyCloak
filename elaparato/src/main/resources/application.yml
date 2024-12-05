@@ -1,0 +1,36 @@
+server:
+    port: 8086
+spring:
+    application:
+        name: elaparato
+    security:
+        oauth2:
+            resourceserver:
+                jwt:
+                    issuer-uri: http://localhost:8080/realms/el-aparato-parula
+    jpa:
+        hibernate:
+            ddl-auto: update
+        database-platform: org.hibernate.dialect.MySQL8Dialect
+        defer-datasource-initialization: true
+    datasource:
+        url: jdbc:mysql://localhost:3306/elaparato?createDatabaseIfNotExist=true&serverTimezone=UTC
+        username: root
+        password: diegoadmin1
+        driver-class-name: com.mysql.cj.jdbc.Driver
+    sql:
+        init:
+            mode: always
+#spring:
+#    security:
+#        oauth2:
+#            client:
+#                provider:
+#                    keycloak:
+#                        issuer-uri: http://localhost:8080/realms/dh
+#                registration:
+#                    keycloak:
+#                        client-id: backend
+#                        client-secret: WrRx69483NbYKZdmpRtJg10MDwvape50
+#                        redirect-uri: http://localhost:8086/login/oauth2/code/google
+
